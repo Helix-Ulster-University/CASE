@@ -1,4 +1,4 @@
-window.MANIFEST_RAW = [
+[
   {
     "category": "Crime",
     "lang": "en",
@@ -1063,4 +1063,4 @@ window.MANIFEST_RAW = [
     "url": "audio/Non-Crime%20OOD/en/%E2%80%9CYou%20Understand%E2%80%9D%20-%20short%20dramatic%20monologue%20-%20Searra%20Sawka%20%28youtube%29_clip1.wav",
     "title": "EN — Non-Crime OOD — “You Understand” - short dramatic monologue - Searra Sawka (youtube)_clip1.wav"
   }
-];
+]
