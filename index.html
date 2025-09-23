@@ -4,65 +4,31 @@
   <meta charset="utf-8" />
   <title>CASE Audio Samples — Generated & OOD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Multilingual crime-from-speech dataset samples (CASE): 5 audio clips per language, class, and set (Generated/OOD)" />
+  <meta name="description" content="Multilingual crime-from-speech dataset samples (CASE): audio clips per language, class, and set (Generated/OOD)" />
   <style>
-    :root{
-      --bg:#0f1220; --panel:#161a2f; --panel-2:#1c2140; --text:#e7e9f7; --muted:#aab0d6;
-      --accent:#7aa2ff; --accent-2:#6df0c2; --chip:#252b57; --border:#2b3266;
-    }
+    :root{ --bg:#0f1220; --panel:#161a2f; --panel-2:#1c2140; --text:#e7e9f7; --muted:#aab0d6; --accent:#7aa2ff; --accent-2:#6df0c2; --chip:#252b57; --border:#2b3266; }
     *{box-sizing:border-box}
-    body{
-      margin:0; font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      color:var(--text); background: radial-gradient(1200px 600px at 20% -10%, #1b2146 0, #0f1220 45%) fixed;
-    }
-    header{
-      position:sticky; top:0; z-index:5; backdrop-filter:saturate(120%) blur(8px);
-      background:linear-gradient(180deg, rgba(15,18,32,.85), rgba(15,18,32,.55));
-      border-bottom:1px solid var(--border);
-    }
-    .wrap{max-width:1150px; margin:0 auto; padding:18px 18px}
+    body{ margin:0; font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans"; color:var(--text); background: radial-gradient(1200px 600px at 20% -10%, #1b2146 0, #0f1220 45%) fixed; }
+    header{ position:sticky; top:0; z-index:5; backdrop-filter:saturate(120%) blur(8px); background:linear-gradient(180deg, rgba(15,18,32,.85), rgba(15,18,32,.55)); border-bottom:1px solid var(--border); }
+    .wrap{max-width:1150px; margin:0 auto; padding:18px}
     .brand{display:flex; gap:12px; align-items:center}
     .brand .dot{width:12px; height:12px; border-radius:50%; background:linear-gradient(45deg, var(--accent), var(--accent-2))}
     h1{font-size:20px; margin:0}
-    .controls{
-      display:grid; grid-template-columns:repeat(4,minmax(0,1fr)) auto; gap:10px; margin-top:14px
-    }
-    select, button, input[type="search"]{
-      background:var(--panel); color:var(--text); border:1px solid var(--border);
-      padding:10px 12px; border-radius:10px; outline:none;
-    }
+    .controls{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)) auto; gap:10px; margin-top:14px }
+    select, button, input[type="search"]{ background:var(--panel); color:var(--text); border:1px solid var(--border); padding:10px 12px; border-radius:10px; outline:none; }
     button{cursor:pointer}
     main{padding:14px 18px}
-    .stats{
-      display:flex; flex-wrap:wrap; gap:10px; margin:8px 0 18px
-    }
-    .chip{
-      background:var(--chip); border:1px solid var(--border); color:var(--muted);
-      padding:8px 10px; border-radius:999px; font-size:13px
-    }
-    .grid{
-      display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:14px
-    }
-    .card{
-      background:linear-gradient(180deg, var(--panel), var(--panel-2));
-      border:1px solid var(--border); border-radius:14px; padding:12px; display:flex; flex-direction:column; gap:10px
-    }
+    .stats{display:flex; flex-wrap:wrap; gap:10px; margin:8px 0 18px}
+    .chip{ background:var(--chip); border:1px solid var(--border); color:var(--muted); padding:8px 10px; border-radius:999px; font-size:13px }
+    .grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:14px }
+    .card{ background:linear-gradient(180deg, var(--panel), var(--panel-2)); border:1px solid var(--border); border-radius:14px; padding:12px; display:flex; flex-direction:column; gap:10px }
     .badgebar{display:flex; gap:8px; align-items:center; justify-content:space-between}
     .badge{font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,.03)}
     .badge.set-Generated{border-color:#2d4fff4d}
     .badge.set-OOD{border-color:#22d3a84d}
     .meta{font-size:12px; color:var(--muted)}
-    .title{font-weight:600}
-    audio{width:100%}
-    details{
-      background:linear-gradient(180deg, var(--panel), #0f1220); border:1px solid var(--border); border-radius:12px; padding:12px; margin:14px 0
-    }
-    details summary{cursor:pointer; font-weight:600}
-    .legend{display:flex; gap:8px; flex-wrap:wrap; margin-top:6px}
-    .legend .tag{font-size:12px; border:1px solid var(--border); border-radius:999px; padding:4px 8px}
     .sr{position:absolute; left:-9999px}
     .footer{color:#95a0e0; font-size:13px; margin:24px 0 60px}
-    .kbd{padding:.1em .4em; border:1px solid var(--border); border-bottom-width:2px; border-radius:6px; background:#0b0e1c}
     .pilltabs{display:flex; gap:8px; flex-wrap:wrap}
     .pilltabs button{border-radius:20px; padding:8px 12px; background:var(--panel); border:1px solid var(--border)}
     .pilltabs button[aria-pressed="true"]{outline:2px solid var(--accent)}
@@ -76,11 +42,10 @@
         <span class="dot" aria-hidden="true"></span>
         <h1>CASE Audio Samples — Multilingual Crime-from-Speech</h1>
       </div>
-
       <div class="controls" role="region" aria-label="filters">
         <div class="pilltabs" role="tablist" aria-label="Set">
-          <button id="tab-generated" role="tab" aria-selected="true" aria-pressed="true" onclick="setSet('Generated')">Generated</button>
-          <button id="tab-ood" role="tab" aria-selected="false" aria-pressed="false" onclick="setSet('OOD')">OOD</button>
+          <button id="tab-generated" role="tab" aria-pressed="true" onclick="setSet('Generated')">Generated</button>
+          <button id="tab-ood" role="tab" aria-pressed="false" onclick="setSet('OOD')">OOD</button>
         </div>
         <select id="lang" aria-label="Language" onchange="refresh()">
           <option value="all">All Languages</option>
@@ -102,94 +67,53 @@
   </header>
 
   <main class="wrap">
-    <section aria-labelledby="about">
-      <details open>
-        <summary id="about">About the dataset & website</summary>
-        <p style="margin-top:8px">
-          This page previews a small, balanced slice of the <strong>CASE</strong> resource:
-          5 clips per <em>language × class × set</em>.
-          <br/>Languages: English, Chinese (Mandarin), Spanish, French, Japanese. Classes: Crime vs Non-Crime. Sets: Generated (CASE) vs OOD (real-media). :contentReference[oaicite:3]{index=3}
-        </p>
-        <div class="legend">
-          <span class="tag">10 crime categories (context): online scams, drug-related, extortion, blackmail, property, violent, human-related (e.g., trafficking), white-collar/financial, grooming, organized crime. :contentReference[oaicite:4]{index=4}</span>
-        </div>
-        <p style="margin:6px 0 0">
-          Ethical note: OOD clips are publicly available real-media and kept separate from Generated content; resources are released post-review with consent procedures as described in the paper. :contentReference[oaicite:5]{index=5}
-        </p>
-      </details>
-    </section>
-
-    <section aria-labelledby="stats">
-      <div class="stats" id="stats">
-        <!-- counters injected here -->
-      </div>
-    </section>
-
+    <section aria-labelledby="stats"><div class="stats" id="stats"></div></section>
     <section aria-labelledby="samples">
       <h2 id="samples" class="sr">Samples</h2>
-      <div id="grid" class="grid" role="list">
-        <!-- cards injected here -->
-      </div>
+      <div id="grid" class="grid" role="list"></div>
       <div id="empty" class="empty" hidden>No matches for your filters.</div>
     </section>
-
-    <p class="footer">
-      Built for the paper “CASE: A Multilingual Corpus for Speech-Centered Crime Detection” — demo viewer only. :contentReference[oaicite:6]{index=6}
-    </p>
+    <p class="footer">Built for the paper “CASE: A Multilingual Corpus for Speech-Centered Crime Detection” — demo viewer only.</p>
   </main>
 
+  <!-- Load manifest via script (works with file://) -->
+  <script src="audio/manifest.js"></script>
+
   <script>
-    /* ======= Configuration =======
-     * By default the page expects files in:
-     * ./audio/<Set>/<lang>/<Class>/N.mp3
-     * where:
-     *  - <Set> ∈ {Generated, OOD}
-     *  - <lang> ∈ {en, zh, es, fr, ja}
-     *  - <Class> ∈ {Crime, Non-Crime}
-     *  - N ∈ {1..5}
-     * Example: ./audio/Generated/en/Crime/1.mp3
-     *
-     * If you prefer explicit URLs (S3, GDrive, etc.), replace the autoBuildManifest()
-     * with a hard-coded MANIFEST array of entries: {set, lang, cls, url, title?, note?}
-     */
-
     const LANG_NAME = { en:"English", zh:"Chinese", es:"Spanish", fr:"French", ja:"Japanese" };
+    let MANIFEST = [];
+    let currentSet = "Generated";
 
-    const USE_FOLDER_CONVENTION = true; // set to false if you replace MANIFEST with explicit URLs
-
-    // If you disable folder convention, define MANIFEST directly like:
-    // const MANIFEST = [
-    //   { set:"Generated", lang:"en", cls:"Crime", url:"https://…/gen/en/crime1.mp3", title:"EN Crime #1" },
-    //   …
-    // ];
-
-    function autoBuildManifest(){
-      const entries = [];
-      const sets = ["Generated","OOD"];
-      const langs = ["en","zh","es","fr","ja"];
-      const classes = ["Crime","Non-Crime"];
-
-      for (const set of sets){
-        for (const lang of langs){
-          for (const cls of classes){
-            for (let i=1; i<=5; i++){
-              const url = `audio/${set}/${lang}/${cls}/${i}.mp3`;
-              entries.push({
-                set, lang, cls, url,
-                title: `${LANG_NAME[lang]} — ${cls} #${i}`,
-                note: `${set} | ${lang} | ${cls} | sample ${i}`
-              });
-            }
-          }
-        }
-      }
-      return entries;
+    function normalizeManifest(raw){
+      return (raw || []).map(it => {
+        const category = (it.category || "").trim();
+        const isOOD = /ood/i.test(category);
+        const isNonCrime = /^non-?crime/i.test(category);
+        const set = isOOD ? "OOD" : "Generated";
+        const cls = isNonCrime ? "Non-Crime" : "Crime";
+        return {
+          set,
+          cls,
+          lang: it.lang,
+          url: it.url,
+          title: it.title || `${(LANG_NAME[it.lang]||it.lang)} — ${cls}`,
+          note: `${set} | ${it.lang} | ${cls} | ${category}`
+        };
+      });
     }
 
-    const MANIFEST = USE_FOLDER_CONVENTION ? autoBuildManifest() : (window.MANIFEST || []);
-
-    // State
-    let currentSet = "Generated";
+    function init(){
+      if (!Array.isArray(window.MANIFEST_RAW)) {
+        const stats = document.getElementById('stats');
+        const chip = document.createElement('div');
+        chip.className = 'chip';
+        chip.textContent = 'Error: audio/manifest.js missing or invalid (window.MANIFEST_RAW not found).';
+        stats.append(chip);
+        return;
+      }
+      MANIFEST = normalizeManifest(window.MANIFEST_RAW);
+      refresh();
+    }
 
     function setSet(s){
       currentSet = s;
@@ -203,15 +127,15 @@
       const cls  = document.getElementById('cls').value;
       const q    = document.getElementById('q').value.trim().toLowerCase();
 
-      const filt = MANIFEST.filter(it =>
+      const items = MANIFEST.filter(it =>
         it.set === currentSet &&
         (lang === "all" || it.lang === lang) &&
         (cls === "all" || it.cls === cls) &&
         (!q || (it.title?.toLowerCase().includes(q) || it.note?.toLowerCase().includes(q)))
       );
 
-      renderStats(filt);
-      renderGrid(filt);
+      renderStats(items);
+      renderGrid(items);
     }
 
     function renderStats(items){
@@ -220,23 +144,19 @@
 
       const el = document.getElementById('stats');
       el.innerHTML = "";
-      const makeChip = (txt)=>{ const s=document.createElement('div'); s.className='chip'; s.textContent=txt; return s; }
+      const chip = t => { const s=document.createElement('div'); s.className='chip'; s.textContent=t; return s; };
 
-      el.append(makeChip(`Set: ${currentSet}`));
-      el.append(makeChip(`Total clips: ${items.length}`));
-      el.append(makeChip(`Languages: ` + Object.keys(byLang).map(k=>`${LANG_NAME[k]} (${byLang[k].length})`).join(' · ')));
-      el.append(makeChip(`Classes: ` + Object.keys(byCls).map(k=>`${k} (${byCls[k].length})`).join(' · ')));
+      el.append(chip(`Set: ${currentSet}`));
+      el.append(chip(`Total clips: ${items.length}`));
+      el.append(chip(`Languages: ` + Object.keys(byLang).map(k=>`${LANG_NAME[k]||k} (${byLang[k].length})`).join(' · ')));
+      el.append(chip(`Classes: ` + Object.keys(byCls).map(k=>`${k} (${byCls[k].length})`).join(' · ')));
     }
 
     function renderGrid(items){
       const grid = document.getElementById('grid');
       const empty = document.getElementById('empty');
       grid.innerHTML = "";
-
-      if(items.length === 0){
-        empty.hidden = false;
-        return;
-      }
+      if (!items.length){ empty.hidden = false; return; }
       empty.hidden = true;
 
       for (const it of items){
@@ -249,9 +169,9 @@
 
         const left = document.createElement('div');
         left.style.display="flex"; left.style.gap="6px"; left.style.alignItems="center";
-        const bSet = document.createElement('span'); bSet.className='badge set-'+it.set; bSet.textContent = it.set;
-        const bLang= document.createElement('span'); bLang.className='badge'; bLang.textContent = LANG_NAME[it.lang];
-        const bCls = document.createElement('span'); bCls.className='badge'; bCls.textContent = it.cls;
+        const bSet = badge(it.set, 'set-'+it.set);
+        const bLang= badge(LANG_NAME[it.lang] || it.lang);
+        const bCls = badge(it.cls);
         left.append(bSet,bLang,bCls);
 
         const right = document.createElement('div');
@@ -273,12 +193,15 @@
       }
     }
 
+    function badge(text, extraClass=''){
+      const s = document.createElement('span');
+      s.className = 'badge' + (extraClass ? ' ' + extraClass : '');
+      s.textContent = text;
+      return s;
+    }
+
     function group(arr, fn){
-      return arr.reduce((acc, x)=>{
-        const k = fn(x);
-        (acc[k] ||= []).push(x);
-        return acc;
-      }, {});
+      return arr.reduce((acc, x)=>{ const k = fn(x); (acc[k] ||= []).push(x); return acc; }, {});
     }
 
     function downloadManifest(){
@@ -290,8 +213,7 @@
       URL.revokeObjectURL(a.href);
     }
 
-    // init
-    refresh();
+    init();
   </script>
 </body>
 </html>
