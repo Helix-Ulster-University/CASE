@@ -25,6 +25,7 @@
     .badgebar{display:flex; gap:8px; align-items:center; justify-content:space-between}
     .badge{font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,.03)}
     .badge.set-Generated{border-color:#2d4fff4d}
+    .badge.set-OOB{border-color:#22d3a84d}
     .badge.set-OOD{border-color:#22d3a84d}
     .meta{font-size:12px; color:var(--muted)}
     .sr{position:absolute; left:-9999px}
@@ -76,14 +77,55 @@
     <p class="footer">Built for the paper “CASE: A Multilingual Corpus for Speech-Centered Crime Detection” — demo viewer only.</p>
   </main>
 
-  <!-- Load manifest via script (works with file://) -->
-  <script src="audio/manifest.json"></script>
-
   <script>
+    // ------- Loader: JSON for web, JS for local file:// -------
     const LANG_NAME = { en:"English", zh:"Chinese", es:"Spanish", fr:"French", ja:"Japanese" };
     let MANIFEST = [];
     let currentSet = "Generated";
 
+    async function loadManifest() {
+      const stats = document.getElementById('stats');
+      const addChip = (t) => { const c=document.createElement('div'); c.className='chip'; c.textContent=t; stats.append(c); };
+
+      // Prefer JSON on http/https (GitHub Pages). Fall back to JS on file://
+      const base = new URL('.', location.href);
+      const jsonUrl = new URL('audio/manifest.json', base).toString();
+      const jsUrl   = new URL('audio/manifest.js', base).toString();
+
+      if (location.protocol === 'http:' || location.protocol === 'https:') {
+        try {
+          const res = await fetch(jsonUrl, { cache: 'no-store' });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const json = await res.json();
+          window.MANIFEST_RAW = json;
+          return;
+        } catch (e) {
+          addChip(`Error loading ${jsonUrl}: ${e.message}`);
+          addChip(`Falling back to ${jsUrl} (ensure it exists).`);
+          await loadManifestViaScript(jsUrl, addChip);
+        }
+      } else {
+        // file:// — script include is the most reliable
+        await loadManifestViaScript(jsUrl, addChip);
+      }
+    }
+
+    function loadManifestViaScript(src, addChip){
+      return new Promise((resolve) => {
+        const s = document.createElement('script');
+        s.src = src;
+        s.onload = () => resolve();
+        s.onerror = () => {
+          addChip(`Error loading ${src} (check path/case/branch).`);
+          // keep app usable
+          window.MANIFEST_RAW = [];
+          resolve();
+        };
+        document.head.appendChild(s);
+      });
+    }
+
+    // ------- Your existing app logic (unchanged) -------
     function normalizeManifest(raw){
       return (raw || []).map(it => {
         const category = (it.category || "").trim();
@@ -107,7 +149,7 @@
         const stats = document.getElementById('stats');
         const chip = document.createElement('div');
         chip.className = 'chip';
-        chip.textContent = 'Error: audio/manifest.js missing or invalid (window.MANIFEST_RAW not found).';
+        chip.textContent = 'Error: manifest missing or invalid. Expected audio/manifest.json (web) or audio/manifest.js (local).';
         stats.append(chip);
         return;
       }
@@ -213,7 +255,11 @@
       URL.revokeObjectURL(a.href);
     }
 
-    init();
+    // Boot
+    (async () => {
+      await loadManifest();
+      init();
+    })();
   </script>
 </body>
 </html>
